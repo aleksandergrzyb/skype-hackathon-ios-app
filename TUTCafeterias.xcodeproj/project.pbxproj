@@ -10,7 +10,6 @@
 		08395B86F05288ADBA528521 /* libPods-TUTCafeterias.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6ECDA3A57E6438F71CA56D /* libPods-TUTCafeterias.a */; };
 		59E4A0951AEADC57007E4981 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0941AEADC57007E4981 /* main.m */; };
 		59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0971AEADC57007E4981 /* AppDelegate.m */; };
-		59E4A09B1AEADC57007E4981 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A09A1AEADC57007E4981 /* ViewController.m */; };
 		59E4A09E1AEADC57007E4981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E4A09C1AEADC57007E4981 /* Main.storyboard */; };
 		59E4A0A01AEADC57007E4981 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E4A09F1AEADC57007E4981 /* Images.xcassets */; };
 		59E4A0A31AEADC57007E4981 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E4A0A11AEADC57007E4981 /* LaunchScreen.xib */; };
@@ -34,8 +33,6 @@
 		59E4A0941AEADC57007E4981 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		59E4A0961AEADC57007E4981 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		59E4A0971AEADC57007E4981 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		59E4A0991AEADC57007E4981 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		59E4A09A1AEADC57007E4981 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		59E4A09D1AEADC57007E4981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59E4A09F1AEADC57007E4981 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		59E4A0A21AEADC57007E4981 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -88,12 +85,7 @@
 		59E4A0911AEADC57007E4981 /* TUTCafeterias */ = {
 			isa = PBXGroup;
 			children = (
-				59E4A0961AEADC57007E4981 /* AppDelegate.h */,
-				59E4A0971AEADC57007E4981 /* AppDelegate.m */,
-				59E4A0991AEADC57007E4981 /* ViewController.h */,
-				59E4A09A1AEADC57007E4981 /* ViewController.m */,
 				59E4A09C1AEADC57007E4981 /* Main.storyboard */,
-				59E4A09F1AEADC57007E4981 /* Images.xcassets */,
 				59E4A0A11AEADC57007E4981 /* LaunchScreen.xib */,
 				59E4A0921AEADC57007E4981 /* Supporting Files */,
 			);
@@ -103,6 +95,9 @@
 		59E4A0921AEADC57007E4981 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59E4A09F1AEADC57007E4981 /* Images.xcassets */,
+				59E4A0961AEADC57007E4981 /* AppDelegate.h */,
+				59E4A0971AEADC57007E4981 /* AppDelegate.m */,
 				59E4A0931AEADC57007E4981 /* Info.plist */,
 				59E4A0941AEADC57007E4981 /* main.m */,
 			);
@@ -278,7 +273,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59E4A09B1AEADC57007E4981 /* ViewController.m in Sources */,
 				59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */,
 				59E4A0951AEADC57007E4981 /* main.m in Sources */,
 			);

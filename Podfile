@@ -3,6 +3,7 @@
 
 target 'TUTCafeterias' do
 	pod 'Parse'
+	pod 'MSDynamicsDrawerViewController'
 end
 
 target 'TUTCafeteriasTests' do

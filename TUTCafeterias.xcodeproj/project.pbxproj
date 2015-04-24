@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08395B86F05288ADBA528521 /* libPods-TUTCafeterias.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6ECDA3A57E6438F71CA56D /* libPods-TUTCafeterias.a */; };
 		59E4A0951AEADC57007E4981 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0941AEADC57007E4981 /* main.m */; };
 		59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0971AEADC57007E4981 /* AppDelegate.m */; };
 		59E4A09B1AEADC57007E4981 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A09A1AEADC57007E4981 /* ViewController.m */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4EB79E27CD61FF828045ADAF /* Pods-TUTCafeterias.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TUTCafeterias.release.xcconfig"; path = "Pods/Target Support Files/Pods-TUTCafeterias/Pods-TUTCafeterias.release.xcconfig"; sourceTree = "<group>"; };
 		59E4A08F1AEADC57007E4981 /* TUTCafeterias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUTCafeterias.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E4A0931AEADC57007E4981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59E4A0941AEADC57007E4981 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +42,8 @@
 		59E4A0A81AEADC57007E4981 /* TUTCafeteriasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TUTCafeteriasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E4A0AD1AEADC57007E4981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59E4A0AE1AEADC57007E4981 /* TUTCafeteriasTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TUTCafeteriasTests.m; sourceTree = "<group>"; };
+		9C6ECDA3A57E6438F71CA56D /* libPods-TUTCafeterias.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TUTCafeterias.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6D68F3374983D47F72A20D6 /* Pods-TUTCafeterias.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TUTCafeterias.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TUTCafeterias/Pods-TUTCafeterias.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08395B86F05288ADBA528521 /* libPods-TUTCafeterias.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 				59E4A0911AEADC57007E4981 /* TUTCafeterias */,
 				59E4A0AB1AEADC57007E4981 /* TUTCafeteriasTests */,
 				59E4A0901AEADC57007E4981 /* Products */,
+				DBCADE2C0E34A1F2A8841B67 /* Pods */,
+				6A3C2DA098C249F11F1C69B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +126,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6A3C2DA098C249F11F1C69B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C6ECDA3A57E6438F71CA56D /* libPods-TUTCafeterias.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBCADE2C0E34A1F2A8841B67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6D68F3374983D47F72A20D6 /* Pods-TUTCafeterias.debug.xcconfig */,
+				4EB79E27CD61FF828045ADAF /* Pods-TUTCafeterias.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 59E4A0B21AEADC57007E4981 /* Build configuration list for PBXNativeTarget "TUTCafeterias" */;
 			buildPhases = (
+				A3D95A5D83272C5548E07B67 /* Check Pods Manifest.lock */,
 				59E4A08B1AEADC57007E4981 /* Sources */,
 				59E4A08C1AEADC57007E4981 /* Frameworks */,
 				59E4A08D1AEADC57007E4981 /* Resources */,
+				1816BD8148027BC774A01668 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1816BD8148027BC774A01668 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TUTCafeterias/Pods-TUTCafeterias-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3D95A5D83272C5548E07B67 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		59E4A08B1AEADC57007E4981 /* Sources */ = {
@@ -345,6 +404,7 @@
 		};
 		59E4A0B31AEADC57007E4981 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6D68F3374983D47F72A20D6 /* Pods-TUTCafeterias.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TUTCafeterias/Info.plist;
@@ -355,6 +415,7 @@
 		};
 		59E4A0B41AEADC57007E4981 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EB79E27CD61FF828045ADAF /* Pods-TUTCafeterias.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TUTCafeterias/Info.plist;
@@ -416,6 +477,7 @@
 				59E4A0B41AEADC57007E4981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		59E4A0B51AEADC57007E4981 /* Build configuration list for PBXNativeTarget "TUTCafeteriasTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +486,7 @@
 				59E4A0B71AEADC57007E4981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

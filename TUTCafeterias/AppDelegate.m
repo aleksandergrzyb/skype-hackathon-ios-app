@@ -8,8 +8,11 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import "SHFoodViewController.h"
+#import "SHCategoriesViewController.h"
+#import "MSDynamicsDrawerViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <MSDynamicsDrawerViewControllerDelegate>
 
 @end
 
@@ -26,6 +29,27 @@
 
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+
+    self.dynamicsDrawerViewController = [MSDynamicsDrawerViewController new];
+    self.dynamicsDrawerViewController.delegate = self;
+
+    // Front view controller
+    SHFoodViewController *foodViewController = [SHFoodViewController new];
+
+    // Navigation controller for main food and map controller on the right
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:foodViewController];
+
+    // Left view controller
+    SHCategoriesViewController *categoriesViewController = [SHCategoriesViewController new];
+    categoriesViewController.dynamicsDrawerViewController = self.dynamicsDrawerViewController;
+    [self.dynamicsDrawerViewController setDrawerViewController:categoriesViewController forDirection:MSDynamicsDrawerDirectionLeft];
+
+    self.dynamicsDrawerViewController.paneViewController = navigationController;
+
+    self.window.rootViewController = self.dynamicsDrawerViewController;
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 

@@ -13,6 +13,7 @@
 
 @interface SHFoodViewController ()
 @property NSArray *food;
+@property NSMutableArray *cafeterias;
 @end
 
 @implementation SHFoodViewController
@@ -22,6 +23,17 @@
     [super viewDidLoad];
     [self configureTableView];
     [self loadData];
+}
+
+#pragma mark -
+#pragma mark Getters
+
+- (NSMutableArray *)cafeterias
+{
+    if (!_cafeterias) {
+        _cafeterias = [NSMutableArray new];
+    }
+    return _cafeterias;
 }
 
 #pragma mark -
@@ -36,15 +48,22 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.food = objects;
-            SHFood *food = (SHFood *)self.food.firstObject;
-            NSLog(@"%@", food.cafe_id.name);
+            [self parseCafeterias];
             [self.tableView reloadData];
         }
         else {
             NSLog(@"%@", error.description);
         }
     }];
+}
 
+- (void)parseCafeterias
+{
+    for (SHFood *food in self.food) {
+        if (![self.cafeterias containsObject:food.cafe_id]) {
+            [self.cafeterias addObject:food.cafe_id];
+        }
+    }
 }
 
 #pragma mark -
@@ -52,22 +71,47 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.cafeterias.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.food.count;
+    SHCafeteria *sectionCafeteria = (SHCafeteria *)self.cafeterias[section];
+    int count = 0;
+    for (SHFood *food in self.food) {
+        SHCafeteria *cafeteria = food.cafe_id;
+        if ([cafeteria isEqual:sectionCafeteria]) {
+            count++;
+        }
+    }
+    return count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    SHCafeteria *sectionCafeteria = (SHCafeteria *)self.cafeterias[section];
+    return sectionCafeteria.name;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"FoodCell";
     SHFoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    SHFood *food = (SHFood *)self.food[indexPath.row];
-    cell.cellType = FoodTableViewCellTypeNonCafeteria;
-    cell.name = food.name;
-    cell.price = food.price;
+    SHCafeteria *cafeteria = self.cafeterias[indexPath.section];
+    int count = 0;
+    for (SHFood *food in self.food) {
+        SHCafeteria *currentCafeteria = food.cafe_id;
+        if ([cafeteria isEqual:currentCafeteria]) {
+            if (count == indexPath.row) {
+                cell.cellType = FoodTableViewCellTypeNonCafeteria;
+                cell.name = food.name;
+                cell.price = food.price;
+                return cell;
+            } else {
+                count++;
+            }
+        }
+    }
     return cell;
 }
 

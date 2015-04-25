@@ -10,6 +10,7 @@
 #import "SHFood.h"
 #import "SHCategoriesViewController.h"
 #import "SHFoodTableViewCell.h"
+#import "SHMapViewController.h"
 #import "SHConstants.h"
 #import "SHDishType.h"
 #import "SHType.h"
@@ -27,15 +28,25 @@
 
 @implementation SHFoodViewController
 
+#pragma mark -
+#pragma mark View Controller Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self configureTableView];
     [self configureNavigationItemButtons];
     [self configureDynamicsDrawer];
     [self loadData];
     self.filterState = FilterStateOff;
     [self updatePassedFilters];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.dynamicsDrawerViewController setPaneDragRevealEnabled:YES forDirection:MSDynamicsDrawerDirectionAll];
 }
 
 #pragma mark -
@@ -305,7 +316,9 @@
 
 - (void)rightButtonPushed
 {
-
+    SHMapViewController *mapViewController = [SHMapViewController new];
+    [self.dynamicsDrawerViewController setPaneDragRevealEnabled:NO forDirection:MSDynamicsDrawerDirectionAll];
+    [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
 @end

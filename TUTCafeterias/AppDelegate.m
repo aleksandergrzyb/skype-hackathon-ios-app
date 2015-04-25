@@ -34,6 +34,7 @@
 
     self.dynamicsDrawerViewController = [MSDynamicsDrawerViewController new];
     self.dynamicsDrawerViewController.delegate = self;
+    self.dynamicsDrawerViewController.gravityMagnitude = 4.0f;
 
     // Front view controller
     SHFoodViewController *foodViewController = [SHFoodViewController new];

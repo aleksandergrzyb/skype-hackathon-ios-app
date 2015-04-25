@@ -19,6 +19,7 @@
 		59D0005D1AEBC2EA00C6C958 /* SHCategoriesHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D0005C1AEBC2EA00C6C958 /* SHCategoriesHeader.m */; };
 		59D000601AEBFA6B00C6C958 /* SHType.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D0005F1AEBFA6B00C6C958 /* SHType.m */; };
 		59D000631AEBFA7800C6C958 /* SHDishType.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D000621AEBFA7800C6C958 /* SHDishType.m */; };
+		59D000661AEC15AC00C6C958 /* SHMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D000651AEC15AC00C6C958 /* SHMapViewController.m */; };
 		59E4A0951AEADC57007E4981 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0941AEADC57007E4981 /* main.m */; };
 		59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0971AEADC57007E4981 /* AppDelegate.m */; };
 		59E4A0A01AEADC57007E4981 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E4A09F1AEADC57007E4981 /* Images.xcassets */; };
@@ -58,6 +59,8 @@
 		59D0005F1AEBFA6B00C6C958 /* SHType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHType.m; path = Model/SHType.m; sourceTree = "<group>"; };
 		59D000611AEBFA7800C6C958 /* SHDishType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDishType.h; path = Model/SHDishType.h; sourceTree = "<group>"; };
 		59D000621AEBFA7800C6C958 /* SHDishType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDishType.m; path = Model/SHDishType.m; sourceTree = "<group>"; };
+		59D000641AEC15AC00C6C958 /* SHMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMapViewController.h; path = "View Controllers/SHMapViewController.h"; sourceTree = "<group>"; };
+		59D000651AEC15AC00C6C958 /* SHMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMapViewController.m; path = "View Controllers/SHMapViewController.m"; sourceTree = "<group>"; };
 		59E4A08F1AEADC57007E4981 /* TUTCafeterias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUTCafeterias.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E4A0931AEADC57007E4981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59E4A0941AEADC57007E4981 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				59E4A0C91AEAEC17007E4981 /* SHCategoriesViewController.m */,
 				59E4A0C21AEAE7E1007E4981 /* SHFoodViewController.h */,
 				59E4A0C31AEAE7E1007E4981 /* SHFoodViewController.m */,
+				59D000641AEC15AC00C6C958 /* SHMapViewController.h */,
+				59D000651AEC15AC00C6C958 /* SHMapViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				59A147BA1AEB923D00377527 /* SHCafeteria.m in Sources */,
 				59E4A0D61AEAFE88007E4981 /* SHFoodTableViewCell.m in Sources */,
 				59D000601AEBFA6B00C6C958 /* SHType.m in Sources */,
+				59D000661AEC15AC00C6C958 /* SHMapViewController.m in Sources */,
 				59E4A0951AEADC57007E4981 /* main.m in Sources */,
 				59E4A0CA1AEAEC17007E4981 /* SHCategoriesViewController.m in Sources */,
 				59D0005D1AEBC2EA00C6C958 /* SHCategoriesHeader.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "SHCategoriesViewController.h"
-#import "constants.h"
+#import "SHConstants.h"
 
 @interface SHCategoriesViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) UITableView *tableView;
@@ -19,15 +19,11 @@
 #pragma mark -
 #pragma mark View Controller Lifecycle
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:0.271 green:0.271 blue:0.271 alpha:1];
     [self customizeTableView];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)loadView
@@ -40,7 +36,8 @@
 
 - (void)viewWillLayoutSubviews
 {
-    self.tableView.frame = CGRectMake(0.0f, TABLE_VIEW_TOP_OFSSET, self.view.bounds.size.width, self.view.bounds.size.height - TABLE_VIEW_TOP_OFSSET);
+    self.tableView.frame = CGRectMake(0.0f, TABLE_VIEW_TOP_OFSSET, self.view.bounds.size.width,
+                                      self.view.bounds.size.height - TABLE_VIEW_TOP_OFSSET);
 }
 
 #pragma mark -

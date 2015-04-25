@@ -45,7 +45,7 @@
 		59E4A0C31AEAE7E1007E4981 /* SHFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHFoodViewController.m; path = "View Controllers/SHFoodViewController.m"; sourceTree = "<group>"; };
 		59E4A0C81AEAEC17007E4981 /* SHCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHCategoriesViewController.h; path = "View Controllers/SHCategoriesViewController.h"; sourceTree = "<group>"; };
 		59E4A0C91AEAEC17007E4981 /* SHCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHCategoriesViewController.m; path = "View Controllers/SHCategoriesViewController.m"; sourceTree = "<group>"; };
-		59E4A0CB1AEAF169007E4981 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		59E4A0CB1AEAF169007E4981 /* SHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHConstants.h; sourceTree = "<group>"; };
 		59E4A0D01AEAF40A007E4981 /* SHFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHFood.h; path = Model/SHFood.h; sourceTree = "<group>"; };
 		59E4A0D11AEAF40A007E4981 /* SHFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHFood.m; path = Model/SHFood.m; sourceTree = "<group>"; };
 		59E4A0D41AEAFE88007E4981 /* SHFoodTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHFoodTableViewCell.h; path = Views/SHFoodTableViewCell.h; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				59E4A0971AEADC57007E4981 /* AppDelegate.m */,
 				59E4A0931AEADC57007E4981 /* Info.plist */,
 				59E4A0941AEADC57007E4981 /* main.m */,
-				59E4A0CB1AEAF169007E4981 /* constants.h */,
+				59E4A0CB1AEAF169007E4981 /* SHConstants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

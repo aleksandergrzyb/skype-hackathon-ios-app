@@ -59,6 +59,7 @@
     static NSString *CellIdentifier = @"FoodCell";
     SHFoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     SHFood *food = (SHFood *)self.food[indexPath.row];
+    cell.cellType = FoodTableViewCellTypeNonCafeteria;
     cell.name = food.name;
     cell.price = food.price;
     return cell;
@@ -71,6 +72,8 @@
 {
      [self.tableView registerClass:[SHFoodTableViewCell class] forCellReuseIdentifier:@"FoodCell"];
     self.tableView.allowsSelection = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.97 green:0.82 blue:0.49 alpha:1];
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 @end

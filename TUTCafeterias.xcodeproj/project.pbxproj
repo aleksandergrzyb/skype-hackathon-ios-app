@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		08395B86F05288ADBA528521 /* libPods-TUTCafeterias.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6ECDA3A57E6438F71CA56D /* libPods-TUTCafeterias.a */; };
+		59A147B21AEB8D7F00377527 /* Homestead-Display.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147AC1AEB8D7F00377527 /* Homestead-Display.ttf */; };
+		59A147B31AEB8D7F00377527 /* Homestead-Inline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147AD1AEB8D7F00377527 /* Homestead-Inline.ttf */; };
+		59A147B41AEB8D7F00377527 /* Homestead-One.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147AE1AEB8D7F00377527 /* Homestead-One.ttf */; };
+		59A147B51AEB8D7F00377527 /* Homestead-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147AF1AEB8D7F00377527 /* Homestead-Regular.ttf */; };
+		59A147B61AEB8D7F00377527 /* Homestead-Three.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147B01AEB8D7F00377527 /* Homestead-Three.ttf */; };
+		59A147B71AEB8D7F00377527 /* Homestead-Two.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147B11AEB8D7F00377527 /* Homestead-Two.ttf */; };
 		59E4A0951AEADC57007E4981 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0941AEADC57007E4981 /* main.m */; };
 		59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0971AEADC57007E4981 /* AppDelegate.m */; };
 		59E4A0A01AEADC57007E4981 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E4A09F1AEADC57007E4981 /* Images.xcassets */; };
@@ -31,6 +37,12 @@
 
 /* Begin PBXFileReference section */
 		4EB79E27CD61FF828045ADAF /* Pods-TUTCafeterias.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TUTCafeterias.release.xcconfig"; path = "Pods/Target Support Files/Pods-TUTCafeterias/Pods-TUTCafeterias.release.xcconfig"; sourceTree = "<group>"; };
+		59A147AC1AEB8D7F00377527 /* Homestead-Display.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Display.ttf"; sourceTree = "<group>"; };
+		59A147AD1AEB8D7F00377527 /* Homestead-Inline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Inline.ttf"; sourceTree = "<group>"; };
+		59A147AE1AEB8D7F00377527 /* Homestead-One.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-One.ttf"; sourceTree = "<group>"; };
+		59A147AF1AEB8D7F00377527 /* Homestead-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Regular.ttf"; sourceTree = "<group>"; };
+		59A147B01AEB8D7F00377527 /* Homestead-Three.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Three.ttf"; sourceTree = "<group>"; };
+		59A147B11AEB8D7F00377527 /* Homestead-Two.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Two.ttf"; sourceTree = "<group>"; };
 		59E4A08F1AEADC57007E4981 /* TUTCafeterias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUTCafeterias.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E4A0931AEADC57007E4981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59E4A0941AEADC57007E4981 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,6 +85,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59A147AB1AEB8D6F00377527 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				59A147AC1AEB8D7F00377527 /* Homestead-Display.ttf */,
+				59A147AD1AEB8D7F00377527 /* Homestead-Inline.ttf */,
+				59A147AE1AEB8D7F00377527 /* Homestead-One.ttf */,
+				59A147AF1AEB8D7F00377527 /* Homestead-Regular.ttf */,
+				59A147B01AEB8D7F00377527 /* Homestead-Three.ttf */,
+				59A147B11AEB8D7F00377527 /* Homestead-Two.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		59E4A0861AEADC57007E4981 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +132,7 @@
 		59E4A0921AEADC57007E4981 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59A147AB1AEB8D6F00377527 /* Fonts */,
 				59E4A0A11AEADC57007E4981 /* LaunchScreen.xib */,
 				59E4A09F1AEADC57007E4981 /* Images.xcassets */,
 				59E4A0961AEADC57007E4981 /* AppDelegate.h */,
@@ -263,7 +289,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59A147B41AEB8D7F00377527 /* Homestead-One.ttf in Resources */,
+				59A147B21AEB8D7F00377527 /* Homestead-Display.ttf in Resources */,
 				59E4A0A31AEADC57007E4981 /* LaunchScreen.xib in Resources */,
+				59A147B31AEB8D7F00377527 /* Homestead-Inline.ttf in Resources */,
+				59A147B51AEB8D7F00377527 /* Homestead-Regular.ttf in Resources */,
+				59A147B61AEB8D7F00377527 /* Homestead-Three.ttf in Resources */,
+				59A147B71AEB8D7F00377527 /* Homestead-Two.ttf in Resources */,
 				59E4A0A01AEADC57007E4981 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

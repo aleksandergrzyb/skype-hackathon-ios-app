@@ -74,6 +74,23 @@
     self.tableView.allowsSelection = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.97 green:0.82 blue:0.49 alpha:1];
     self.navigationController.navigationBar.translucent = NO;
+
+    // Configuring font
+    CGFloat x = self.navigationItem.titleView.frame.origin.x;
+    CGFloat y = self.navigationItem.titleView.frame.origin.x;
+    CGFloat width = self.view.frame.size.width;
+    CGFloat height = self.navigationController.navigationBar.frame.size.height;
+    CGRect navigationItemFrame = CGRectMake(x, y, width, height);
+    UILabel *navigationItemView = [[UILabel alloc] initWithFrame:navigationItemFrame];
+    NSDictionary *atrributedStringAttributes = @{
+                                                 NSFontAttributeName : [UIFont fontWithName:@"Homestead-Regular" size:22.0f],
+                                                 NSForegroundColorAttributeName : [UIColor colorWithRed:0.82 green:0.07 blue:0.13 alpha:1],
+                                                 NSBackgroundColorAttributeName : [UIColor clearColor],
+                                                 NSKernAttributeName : [NSNumber numberWithFloat:1.0f]
+                                                 };
+    navigationItemView.attributedText = [[NSAttributedString alloc] initWithString:@"TUT Cafeterias" attributes:atrributedStringAttributes];
+    navigationItemView.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = navigationItemView;
 }
 
 @end

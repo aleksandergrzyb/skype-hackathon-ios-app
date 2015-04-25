@@ -14,6 +14,7 @@
 @dynamic price;
 @dynamic date;
 @dynamic gluten_free;
+@dynamic cafe_id;
 
 + (void)load
 {

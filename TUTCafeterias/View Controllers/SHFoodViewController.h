@@ -9,8 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "MSDynamicsDrawerViewController.h"
 
+typedef enum : NSUInteger {
+    FilterStateOn,
+    FilterStateOff,
+} FilterState;
+
 @interface SHFoodViewController : UITableViewController
 
 @property (weak, nonatomic) MSDynamicsDrawerViewController *dynamicsDrawerViewController;
+@property (strong, nonatomic) NSArray *filters;
 
 @end

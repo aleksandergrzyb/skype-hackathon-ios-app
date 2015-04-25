@@ -9,8 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "MSDynamicsDrawerViewController.h"
 
+typedef enum : NSUInteger {
+    CafeteriaFilter,
+    DishTypeFilter,
+    TypeFilter,
+} CategoryType;
+
+@class SHCategoriesViewController;
+
+@protocol SHCategoriesViewControllerDelegate <NSObject>
+
+- (void)viewController:(SHCategoriesViewController *)categoriesViewController didUpdateFilters:(NSArray *)filters;
+
+@end
+
 @interface SHCategoriesViewController : UIViewController
 
-@property (nonatomic, weak) MSDynamicsDrawerViewController *dynamicsDrawerViewController;
+@property (weak, nonatomic) MSDynamicsDrawerViewController *dynamicsDrawerViewController;
+@property (weak, nonatomic) id <SHCategoriesViewControllerDelegate> delegate;
 
 @end

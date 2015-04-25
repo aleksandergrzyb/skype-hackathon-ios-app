@@ -1,22 +1,16 @@
 //
-//  SHFood.m
+//  SHType.m
 //  TUTCafeterias
 //
 //  Created by Aleksander Grzyb on 25/04/15.
 //  Copyright (c) 2015 Aleksander Grzyb. All rights reserved.
 //
 
-#import "SHFood.h"
+#import "SHType.h"
 
-@implementation SHFood
+@implementation SHType
 
 @dynamic name;
-@dynamic price;
-@dynamic date;
-@dynamic gluten_free;
-@dynamic cafe_id;
-@dynamic dish_type_id;
-@dynamic type_id;
 
 + (void)load
 {
@@ -25,7 +19,7 @@
 
 + (NSString *)parseClassName
 {
-    return @"Food";
+    return @"Type";
 }
 
 @end

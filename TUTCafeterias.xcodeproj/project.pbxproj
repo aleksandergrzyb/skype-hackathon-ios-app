@@ -17,6 +17,8 @@
 		59A147BA1AEB923D00377527 /* SHCafeteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A147B91AEB923D00377527 /* SHCafeteria.m */; };
 		59D0005A1AEBC07A00C6C958 /* SHCategoriesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D000591AEBC07A00C6C958 /* SHCategoriesTableViewCell.m */; };
 		59D0005D1AEBC2EA00C6C958 /* SHCategoriesHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D0005C1AEBC2EA00C6C958 /* SHCategoriesHeader.m */; };
+		59D000601AEBFA6B00C6C958 /* SHType.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D0005F1AEBFA6B00C6C958 /* SHType.m */; };
+		59D000631AEBFA7800C6C958 /* SHDishType.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D000621AEBFA7800C6C958 /* SHDishType.m */; };
 		59E4A0951AEADC57007E4981 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0941AEADC57007E4981 /* main.m */; };
 		59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0971AEADC57007E4981 /* AppDelegate.m */; };
 		59E4A0A01AEADC57007E4981 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E4A09F1AEADC57007E4981 /* Images.xcassets */; };
@@ -52,6 +54,10 @@
 		59D000591AEBC07A00C6C958 /* SHCategoriesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHCategoriesTableViewCell.m; path = Views/SHCategoriesTableViewCell.m; sourceTree = "<group>"; };
 		59D0005B1AEBC2EA00C6C958 /* SHCategoriesHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHCategoriesHeader.h; path = Views/SHCategoriesHeader.h; sourceTree = "<group>"; };
 		59D0005C1AEBC2EA00C6C958 /* SHCategoriesHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHCategoriesHeader.m; path = Views/SHCategoriesHeader.m; sourceTree = "<group>"; };
+		59D0005E1AEBFA6B00C6C958 /* SHType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHType.h; path = Model/SHType.h; sourceTree = "<group>"; };
+		59D0005F1AEBFA6B00C6C958 /* SHType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHType.m; path = Model/SHType.m; sourceTree = "<group>"; };
+		59D000611AEBFA7800C6C958 /* SHDishType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHDishType.h; path = Model/SHDishType.h; sourceTree = "<group>"; };
+		59D000621AEBFA7800C6C958 /* SHDishType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHDishType.m; path = Model/SHDishType.m; sourceTree = "<group>"; };
 		59E4A08F1AEADC57007E4981 /* TUTCafeterias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUTCafeterias.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E4A0931AEADC57007E4981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59E4A0941AEADC57007E4981 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -188,6 +194,10 @@
 				59A147B91AEB923D00377527 /* SHCafeteria.m */,
 				59E4A0D01AEAF40A007E4981 /* SHFood.h */,
 				59E4A0D11AEAF40A007E4981 /* SHFood.m */,
+				59D0005E1AEBFA6B00C6C958 /* SHType.h */,
+				59D0005F1AEBFA6B00C6C958 /* SHType.m */,
+				59D000611AEBFA7800C6C958 /* SHDishType.h */,
+				59D000621AEBFA7800C6C958 /* SHDishType.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -364,10 +374,12 @@
 			files = (
 				59E4A0C41AEAE7E1007E4981 /* SHFoodViewController.m in Sources */,
 				59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */,
+				59D000631AEBFA7800C6C958 /* SHDishType.m in Sources */,
 				59D0005A1AEBC07A00C6C958 /* SHCategoriesTableViewCell.m in Sources */,
 				59E4A0D21AEAF40A007E4981 /* SHFood.m in Sources */,
 				59A147BA1AEB923D00377527 /* SHCafeteria.m in Sources */,
 				59E4A0D61AEAFE88007E4981 /* SHFoodTableViewCell.m in Sources */,
+				59D000601AEBFA6B00C6C958 /* SHType.m in Sources */,
 				59E4A0951AEADC57007E4981 /* main.m in Sources */,
 				59E4A0CA1AEAEC17007E4981 /* SHCategoriesViewController.m in Sources */,
 				59D0005D1AEBC2EA00C6C958 /* SHCategoriesHeader.m in Sources */,

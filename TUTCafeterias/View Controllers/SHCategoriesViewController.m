@@ -17,7 +17,8 @@
 @property (strong, nonatomic) NSDictionary *cafeteriasDictionary;
 @property (strong, nonatomic) NSDictionary *dishTypeDictionary;
 @property (strong, nonatomic) NSDictionary *typeDictionary;
-@property (strong, nonatomic) NSMutableArray *selectedCheckmarksArray;
+@property (strong, nonatomic) NSMutableArray *nonSelectedCheckmarksArray;
+@property (strong, nonatomic) NSMutableArray *filters;
 @end
 
 @implementation SHCategoriesViewController
@@ -112,12 +113,20 @@
     return _typeDictionary;
 }
 
-- (NSMutableArray *)selectedCheckmarksArray
+- (NSMutableArray *)nonSelectedCheckmarksArray
 {
-    if (!_selectedCheckmarksArray) {
-        _selectedCheckmarksArray = [NSMutableArray new];
+    if (!_nonSelectedCheckmarksArray) {
+        _nonSelectedCheckmarksArray = [NSMutableArray new];
     }
-    return _selectedCheckmarksArray;
+    return _nonSelectedCheckmarksArray;
+}
+
+- (NSMutableArray *)filters
+{
+    if (!_filters) {
+        _filters = [NSMutableArray new];
+    }
+    return _filters;
 }
 
 #pragma mark -
@@ -188,10 +197,10 @@
             cell.textLabel.text = self.dishTypeDictionary[@(indexPath.row)];
             break;
     }
-    if ([self.selectedCheckmarksArray containsObject:indexPath]) {
-        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
-    } else {
+    if ([self.nonSelectedCheckmarksArray containsObject:indexPath]) {
         cell.accessoryView = nil;
+    } else {
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
     }
     return cell;
 }
@@ -202,13 +211,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SHCategoriesTableViewCell *cell = (SHCategoriesTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    if ([self.selectedCheckmarksArray containsObject:indexPath]) {
-        cell.accessoryView = nil;
-        [self.selectedCheckmarksArray removeObject:indexPath];
-    } else {
+    if ([self.nonSelectedCheckmarksArray containsObject:indexPath]) {
         cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
-        [self.selectedCheckmarksArray addObject:indexPath];
+        [self.nonSelectedCheckmarksArray removeObject:indexPath];
+        [self.filters removeObject:[self getFilterForIndexPath:indexPath]];
+    } else {
+        cell.accessoryView = nil;
+        [self.nonSelectedCheckmarksArray addObject:indexPath];
+        [self.filters addObject:[self getFilterForIndexPath:indexPath]];
     }
+    [self.delegate viewController:self didUpdateFilters:[self.filters copy]];
 }
 
 #pragma mark -
@@ -221,6 +233,35 @@
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor colorWithRed:0.271 green:0.271 blue:0.271 alpha:1];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+#pragma mark -
+#pragma mark Helpers
+
+- (NSDictionary *)getFilterForIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *filter;
+    switch (indexPath.section) {
+        case DISH_TYPE_HEADER_POSITION:
+            filter = @{
+                       CATEGORY_TYPE_KEY : @(DishTypeFilter),
+                       NAME_KEY : self.dishTypeDictionary[@(indexPath.row)]
+                       };
+            break;
+        case TYPE_HEADER_POSITION:
+            filter = @{
+                       CATEGORY_TYPE_KEY : @(TypeFilter),
+                       NAME_KEY : self.typeDictionary[@(indexPath.row)]
+                       };
+            break;
+        case CAFETERIA_HEADER_POSITION:
+            filter = @{
+                       CATEGORY_TYPE_KEY : @(CafeteriaFilter),
+                       NAME_KEY : self.cafeteriasDictionary[@(indexPath.row)]
+                       };
+            break;
+    }
+    return filter;
 }
 
 @end

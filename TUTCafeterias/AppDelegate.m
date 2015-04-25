@@ -12,8 +12,8 @@
 #import "SHCategoriesViewController.h"
 #import "MSDynamicsDrawerViewController.h"
 
-@interface AppDelegate () <MSDynamicsDrawerViewControllerDelegate>
-
+@interface AppDelegate () <MSDynamicsDrawerViewControllerDelegate, SHCategoriesViewControllerDelegate>
+@property (weak, nonatomic) SHFoodViewController *foodViewController;
 @end
 
 @implementation AppDelegate
@@ -42,9 +42,13 @@
     // Navigation controller for main food and map controller on the right
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:foodViewController];
 
+    // Keeping reference to pass filters from categories vc
+    self.foodViewController = foodViewController;
+
     // Left view controller
     SHCategoriesViewController *categoriesViewController = [SHCategoriesViewController new];
     categoriesViewController.dynamicsDrawerViewController = self.dynamicsDrawerViewController;
+    categoriesViewController.delegate = self;
     [self.dynamicsDrawerViewController setDrawerViewController:categoriesViewController forDirection:MSDynamicsDrawerDirectionLeft];
 
     self.dynamicsDrawerViewController.paneViewController = navigationController;
@@ -75,6 +79,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark -
+#pragma mark Categories View Controller Delegete
+
+- (void)viewController:(SHCategoriesViewController *)categoriesViewController didUpdateFilters:(NSArray *)filters
+{
+    self.foodViewController.filters = filters;
 }
 
 @end

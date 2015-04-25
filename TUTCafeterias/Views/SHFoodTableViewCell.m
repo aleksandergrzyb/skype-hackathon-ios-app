@@ -44,6 +44,7 @@
 
         UILabel *cafeteriaLabel = [[UILabel alloc] init];
         self.cafeteriaLabel = cafeteriaLabel;
+        self.cafeteriaLabel.font = [UIFont systemFontOfSize:12.0f];
         [self addSubview:self.cafeteriaLabel];
     }
     return self;
@@ -63,21 +64,21 @@
                                             self.priceSmallLabel.frame.size.width,
                                             self.priceSmallLabel.frame.size.height);
 
-
-    self.cafeteriaLabel.frame = CGRectMake(LEFT_OFFSET, CAFETERIA_LABEL_TOP_OFFSET,
-                                           self.cafeteriaLabel.frame.size.width,
-                                           self.cafeteriaLabel.frame.size.height);
-
     switch (self.cellType) {
         case FoodTableViewCellTypeCafeteria:
+            [self.nameLabel sizeToFit];
             self.nameLabel.frame = CGRectMake(LEFT_OFFSET, NAME_LABEL_TOP_OFFSET,
                                               self.nameLabel.frame.size.width, self.nameLabel.frame.size.height);
-
+            self.cafeteriaLabel.hidden = NO;
+            self.cafeteriaLabel.frame = CGRectMake(LEFT_OFFSET,
+                                                   CGRectGetMaxY(self.nameLabel.frame) +CAFETERIA_LABEL_TOP_OFFSET,
+                                              self.cafeteriaLabel.frame.size.width, self.cafeteriaLabel.frame.size.height);
             break;
 
         case FoodTableViewCellTypeNonCafeteria:
             self.nameLabel.frame = CGRectMake(LEFT_OFFSET, 0,
                                               self.nameLabel.frame.size.width, self.frame.size.height);
+            self.cafeteriaLabel.hidden = YES;
             break;
     }
 

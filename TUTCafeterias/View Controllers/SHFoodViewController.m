@@ -8,13 +8,21 @@
 
 #import "SHFoodViewController.h"
 #import "SHFood.h"
+#import "SHCategoriesViewController.h"
 #import "SHFoodTableViewCell.h"
 #import "SHConstants.h"
+#import "SHDishType.h"
+#import "SHType.h"
 #import <Parse/Parse.h>
 
 @interface SHFoodViewController ()
+
+- (void)updatePassedFilters;
+
 @property (strong, nonatomic) NSArray *food;
 @property (strong, nonatomic) NSMutableArray *cafeterias;
+@property (strong, nonatomic) NSMutableArray *filterPassedFood;
+@property (nonatomic) FilterState filterState;
 @end
 
 @implementation SHFoodViewController
@@ -26,6 +34,8 @@
     [self configureNavigationItemButtons];
     [self configureDynamicsDrawer];
     [self loadData];
+    self.filterState = FilterStateOff;
+    [self updatePassedFilters];
 }
 
 #pragma mark -
@@ -37,6 +47,83 @@
         _cafeterias = [NSMutableArray new];
     }
     return _cafeterias;
+}
+
+- (NSMutableArray *)filterPassedFood
+{
+    if (!_filterPassedFood) {
+        _filterPassedFood = [NSMutableArray new];
+    }
+    return _filterPassedFood;
+}
+
+#pragma mark -
+#pragma mark Setters
+
+- (void)setFilters:(NSArray *)filters
+{
+    if (_filters == filters) {
+        return;
+    }
+    _filters = filters;
+    [self updatePassedFilters];
+    if (self.filterPassedFood.count == self.food.count) {
+        self.filterState = FilterStateOff;
+    } else {
+        self.filterState = FilterStateOn;
+    }
+}
+
+- (void)setFilterState:(FilterState)filterState
+{
+    if (_filterState == filterState) {
+        return;
+    }
+    _filterState = filterState;
+    [self.tableView reloadData];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)updatePassedFilters
+{
+    self.filterPassedFood = [self.food mutableCopy];
+    for (SHFood *food in self.food) {
+        BOOL passedFilter = YES;
+        for (NSDictionary *filter in self.filters) {
+            switch (((NSNumber *)filter[CATEGORY_TYPE_KEY]).integerValue) {
+                case DishTypeFilter:
+                    {
+                        SHDishType *dishType = food.dish_type_id;
+                        if ([[dishType.name lowercaseString] isEqualToString:[filter[NAME_KEY] lowercaseString]] ) {
+                            passedFilter = NO;
+                        }
+                    }
+                    break;
+                case TypeFilter:
+                    {
+                        SHType *type = food.type_id;
+                        if ([[type.name lowercaseString] isEqualToString:[filter[NAME_KEY] lowercaseString]] ) {
+                            passedFilter = NO;
+                        }
+                    }
+                    break;
+                case CafeteriaFilter:
+                    {
+                        SHCafeteria *cafeteria = food.cafe_id;
+                        if ([[cafeteria.name lowercaseString] isEqualToString:[filter[NAME_KEY] lowercaseString]] ) {
+                            passedFilter = NO;
+                        }
+                    }
+                    break;
+            }
+        }
+        if (!passedFilter) {
+            [self.filterPassedFood removeObject:food];
+        }
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark -
@@ -56,6 +143,8 @@
         }
         else {
             NSLog(@"%@", error.description);
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Check your network connection" message:error.description delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alertView show];
         }
     }];
 }
@@ -74,45 +163,69 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.cafeterias.count;
+    if (self.filterState == FilterStateOn) {
+        return 1;
+    } else {
+        return self.cafeterias.count;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    SHCafeteria *sectionCafeteria = (SHCafeteria *)self.cafeterias[section];
     int count = 0;
-    for (SHFood *food in self.food) {
-        SHCafeteria *cafeteria = food.cafe_id;
-        if ([cafeteria isEqual:sectionCafeteria]) {
-            count++;
+    if (self.filterState == FilterStateOff) {
+        SHCafeteria *sectionCafeteria = (SHCafeteria *)self.cafeterias[section];
+        for (SHFood *food in self.food) {
+            SHCafeteria *cafeteria = food.cafe_id;
+            if ([cafeteria isEqual:sectionCafeteria]) {
+                count++;
+            }
         }
+    } else {
+        return self.filterPassedFood.count;
     }
     return count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    SHCafeteria *sectionCafeteria = (SHCafeteria *)self.cafeterias[section];
-    return sectionCafeteria.name;
+    if (self.filterState == FilterStateOn) {
+        return @"Results of filter";
+    } else {
+        SHCafeteria *sectionCafeteria = (SHCafeteria *)self.cafeterias[section];
+        return sectionCafeteria.name;
+    }
+    return @"";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"FoodCell";
     SHFoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    SHCafeteria *cafeteria = self.cafeterias[indexPath.section];
-    int count = 0;
-    for (SHFood *food in self.food) {
-        SHCafeteria *currentCafeteria = food.cafe_id;
-        if ([cafeteria isEqual:currentCafeteria]) {
-            if (count == indexPath.row) {
-                cell.cellType = FoodTableViewCellTypeNonCafeteria;
-                cell.name = food.name;
-                cell.price = food.price;
-                return cell;
-            } else {
-                count++;
+    if (self.filterState == FilterStateOff) {
+        SHCafeteria *cafeteria = self.cafeterias[indexPath.section];
+        int count = 0;
+        for (SHFood *food in self.food) {
+            SHCafeteria *currentCafeteria = food.cafe_id;
+            if ([cafeteria isEqual:currentCafeteria]) {
+                if (count == indexPath.row) {
+                    cell.cellType = FoodTableViewCellTypeNonCafeteria;
+                    cell.name = food.name;
+                    cell.price = food.price;
+                    return cell;
+                } else {
+                    count++;
+                }
             }
+        }
+    } else {
+        if (self.filterPassedFood.count > 0) {
+            SHFood *food = (SHFood *)self.filterPassedFood[indexPath.row];
+            SHCafeteria *cafeteria = (SHCafeteria *)food.cafe_id;
+            cell.cellType = FoodTableViewCellTypeCafeteria;
+            cell.name = food.name;
+            cell.price = food.price;
+            cell.cafeteria = cafeteria.name;
         }
     }
     return cell;

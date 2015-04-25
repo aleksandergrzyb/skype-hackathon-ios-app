@@ -22,6 +22,7 @@
 {
     [super viewDidLoad];
     [self configureTableView];
+    [self configureNavigationItemButtons];
     [self loadData];
 }
 
@@ -141,6 +142,20 @@
     navigationItemView.attributedText = [[NSAttributedString alloc] initWithString:@"TUT Cafeterias" attributes:atrributedStringAttributes];
     navigationItemView.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = navigationItemView;
+}
+
+#pragma mark -
+#pragma mark Navigation Bar Configuration
+
+- (void)configureNavigationItemButtons
+{
+    UIView *leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"reveal_new"]];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+
+    UIView *rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass"]];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
 @end

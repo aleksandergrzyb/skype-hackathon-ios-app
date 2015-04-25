@@ -4,6 +4,7 @@
 target 'TUTCafeterias' do
 	pod 'Parse'
 	pod 'MSDynamicsDrawerViewController'
+	pod 'Masonry'
 end
 
 target 'TUTCafeteriasTests' do

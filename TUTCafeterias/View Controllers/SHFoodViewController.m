@@ -7,40 +7,70 @@
 //
 
 #import "SHFoodViewController.h"
+#import "SHFood.h"
+#import "SHFoodTableViewCell.h"
+#import <Parse/Parse.h>
 
 @interface SHFoodViewController ()
-
+@property NSArray *food;
 @end
 
 @implementation SHFoodViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self configureTableView];
+    [self loadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark -
+#pragma mark Loading Data
+
+- (void)loadData
+{
+    PFQuery *query = [SHFood query];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            self.food = objects;
+            [self.tableView reloadData];
+        }
+        else {
+            NSLog(@"%@", error.description);
+        }
+    }];
 }
 
-#pragma mark - Table view data source
+#pragma mark -
+#pragma mark Table View Data Source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.food.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"FoodCell";
+    SHFoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    SHFood *food = (SHFood *)self.food[indexPath.row];
+    cell.name = food.name;
+    cell.price = food.price;
+    return cell;
+}
+
+#pragma mark -
+#pragma mark Table View Configuration
+
+- (void)configureTableView
+{
+     [self.tableView registerClass:[SHFoodTableViewCell class] forCellReuseIdentifier:@"FoodCell"];
+    self.tableView.allowsSelection = NO;
 }
 
 @end

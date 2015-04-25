@@ -15,6 +15,8 @@
 		59E4A0AF1AEADC57007E4981 /* TUTCafeteriasTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0AE1AEADC57007E4981 /* TUTCafeteriasTests.m */; };
 		59E4A0C41AEAE7E1007E4981 /* SHFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0C31AEAE7E1007E4981 /* SHFoodViewController.m */; };
 		59E4A0CA1AEAEC17007E4981 /* SHCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0C91AEAEC17007E4981 /* SHCategoriesViewController.m */; };
+		59E4A0D21AEAF40A007E4981 /* SHFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0D11AEAF40A007E4981 /* SHFood.m */; };
+		59E4A0D61AEAFE88007E4981 /* SHFoodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0D51AEAFE88007E4981 /* SHFoodTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,10 @@
 		59E4A0C81AEAEC17007E4981 /* SHCategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHCategoriesViewController.h; path = "View Controllers/SHCategoriesViewController.h"; sourceTree = "<group>"; };
 		59E4A0C91AEAEC17007E4981 /* SHCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHCategoriesViewController.m; path = "View Controllers/SHCategoriesViewController.m"; sourceTree = "<group>"; };
 		59E4A0CB1AEAF169007E4981 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		59E4A0D01AEAF40A007E4981 /* SHFood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHFood.h; path = Model/SHFood.h; sourceTree = "<group>"; };
+		59E4A0D11AEAF40A007E4981 /* SHFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHFood.m; path = Model/SHFood.m; sourceTree = "<group>"; };
+		59E4A0D41AEAFE88007E4981 /* SHFoodTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHFoodTableViewCell.h; path = Views/SHFoodTableViewCell.h; sourceTree = "<group>"; };
+		59E4A0D51AEAFE88007E4981 /* SHFoodTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHFoodTableViewCell.m; path = Views/SHFoodTableViewCell.m; sourceTree = "<group>"; };
 		9C6ECDA3A57E6438F71CA56D /* libPods-TUTCafeterias.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TUTCafeterias.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D68F3374983D47F72A20D6 /* Pods-TUTCafeterias.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TUTCafeterias.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TUTCafeterias/Pods-TUTCafeterias.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,8 +96,9 @@
 		59E4A0911AEADC57007E4981 /* TUTCafeterias */ = {
 			isa = PBXGroup;
 			children = (
+				59E4A0D31AEAFE42007E4981 /* Views */,
+				59E4A0CC1AEAF2F9007E4981 /* Model */,
 				59E4A0BC1AEAE788007E4981 /* View Controllers */,
-				59E4A0A11AEADC57007E4981 /* LaunchScreen.xib */,
 				59E4A0921AEADC57007E4981 /* Supporting Files */,
 			);
 			path = TUTCafeterias;
@@ -100,6 +107,7 @@
 		59E4A0921AEADC57007E4981 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59E4A0A11AEADC57007E4981 /* LaunchScreen.xib */,
 				59E4A09F1AEADC57007E4981 /* Images.xcassets */,
 				59E4A0961AEADC57007E4981 /* AppDelegate.h */,
 				59E4A0971AEADC57007E4981 /* AppDelegate.m */,
@@ -136,6 +144,24 @@
 				59E4A0C31AEAE7E1007E4981 /* SHFoodViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		59E4A0CC1AEAF2F9007E4981 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				59E4A0D01AEAF40A007E4981 /* SHFood.h */,
+				59E4A0D11AEAF40A007E4981 /* SHFood.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		59E4A0D31AEAFE42007E4981 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				59E4A0D41AEAFE88007E4981 /* SHFoodTableViewCell.h */,
+				59E4A0D51AEAFE88007E4981 /* SHFoodTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		6A3C2DA098C249F11F1C69B7 /* Frameworks */ = {
@@ -291,6 +317,8 @@
 			files = (
 				59E4A0C41AEAE7E1007E4981 /* SHFoodViewController.m in Sources */,
 				59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */,
+				59E4A0D21AEAF40A007E4981 /* SHFood.m in Sources */,
+				59E4A0D61AEAFE88007E4981 /* SHFoodTableViewCell.m in Sources */,
 				59E4A0951AEADC57007E4981 /* main.m in Sources */,
 				59E4A0CA1AEAEC17007E4981 /* SHCategoriesViewController.m in Sources */,
 			);

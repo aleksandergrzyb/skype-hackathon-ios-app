@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSDictionary *cafeteriasDictionary;
 @property (strong, nonatomic) NSDictionary *dishTypeDictionary;
 @property (strong, nonatomic) NSDictionary *typeDictionary;
+@property (strong, nonatomic) NSMutableArray *selectedCheckmarksArray;
 @end
 
 @implementation SHCategoriesViewController
@@ -58,7 +59,7 @@
 
 - (void)viewWillLayoutSubviews
 {
-    self.tableView.frame = CGRectMake(0.0f, TABLE_VIEW_TOP_OFSSET, self.view.bounds.size.width,
+    self.tableView.frame = CGRectMake(0.0f, TABLE_VIEW_TOP_OFSSET, self.view.frame.size.width - REVEAL_OFFSET,
                                       self.view.bounds.size.height - TABLE_VIEW_TOP_OFSSET);
 }
 
@@ -109,6 +110,14 @@
                             };
     }
     return _typeDictionary;
+}
+
+- (NSMutableArray *)selectedCheckmarksArray
+{
+    if (!_selectedCheckmarksArray) {
+        _selectedCheckmarksArray = [NSMutableArray new];
+    }
+    return _selectedCheckmarksArray;
 }
 
 #pragma mark -
@@ -179,7 +188,27 @@
             cell.textLabel.text = self.dishTypeDictionary[@(indexPath.row)];
             break;
     }
+    if ([self.selectedCheckmarksArray containsObject:indexPath]) {
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
+    } else {
+        cell.accessoryView = nil;
+    }
     return cell;
+}
+
+#pragma mark -
+#pragma mark Table View Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SHCategoriesTableViewCell *cell = (SHCategoriesTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    if ([self.selectedCheckmarksArray containsObject:indexPath]) {
+        cell.accessoryView = nil;
+        [self.selectedCheckmarksArray removeObject:indexPath];
+    } else {
+        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check"]];
+        [self.selectedCheckmarksArray addObject:indexPath];
+    }
 }
 
 #pragma mark -

@@ -7,6 +7,7 @@
 //
 
 #import <Parse/Parse.h>
+#import "SHCafeteria.h"
 
 @interface SHFood : PFObject <PFSubclassing>
 
@@ -14,6 +15,7 @@
 @property (strong, nonatomic) NSNumber *price;
 @property (strong, nonatomic) NSDate *date;
 @property (nonatomic) BOOL gluten_free;
+@property (strong, nonatomic) SHCafeteria *cafe_id;
 
 + (NSString *)parseClassName;
 

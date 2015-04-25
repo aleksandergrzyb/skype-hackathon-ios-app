@@ -30,15 +30,21 @@
 - (void)loadData
 {
     PFQuery *query = [SHFood query];
+    [query includeKey:@"cafe_id"];
+    [query includeKey:@"type_id"];
+    [query includeKey:@"dish_type_id"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.food = objects;
+            SHFood *food = (SHFood *)self.food.firstObject;
+            NSLog(@"%@", food.cafe_id.name);
             [self.tableView reloadData];
         }
         else {
             NSLog(@"%@", error.description);
         }
     }];
+
 }
 
 #pragma mark -

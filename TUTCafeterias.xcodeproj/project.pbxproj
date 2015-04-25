@@ -14,6 +14,7 @@
 		59A147B51AEB8D7F00377527 /* Homestead-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147AF1AEB8D7F00377527 /* Homestead-Regular.ttf */; };
 		59A147B61AEB8D7F00377527 /* Homestead-Three.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147B01AEB8D7F00377527 /* Homestead-Three.ttf */; };
 		59A147B71AEB8D7F00377527 /* Homestead-Two.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147B11AEB8D7F00377527 /* Homestead-Two.ttf */; };
+		59A147BA1AEB923D00377527 /* SHCafeteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A147B91AEB923D00377527 /* SHCafeteria.m */; };
 		59E4A0951AEADC57007E4981 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0941AEADC57007E4981 /* main.m */; };
 		59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E4A0971AEADC57007E4981 /* AppDelegate.m */; };
 		59E4A0A01AEADC57007E4981 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E4A09F1AEADC57007E4981 /* Images.xcassets */; };
@@ -43,6 +44,8 @@
 		59A147AF1AEB8D7F00377527 /* Homestead-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Regular.ttf"; sourceTree = "<group>"; };
 		59A147B01AEB8D7F00377527 /* Homestead-Three.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Three.ttf"; sourceTree = "<group>"; };
 		59A147B11AEB8D7F00377527 /* Homestead-Two.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Two.ttf"; sourceTree = "<group>"; };
+		59A147B81AEB923D00377527 /* SHCafeteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHCafeteria.h; path = Model/SHCafeteria.h; sourceTree = "<group>"; };
+		59A147B91AEB923D00377527 /* SHCafeteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHCafeteria.m; path = Model/SHCafeteria.m; sourceTree = "<group>"; };
 		59E4A08F1AEADC57007E4981 /* TUTCafeterias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TUTCafeterias.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E4A0931AEADC57007E4981 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59E4A0941AEADC57007E4981 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 		59E4A0CC1AEAF2F9007E4981 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				59A147B81AEB923D00377527 /* SHCafeteria.h */,
+				59A147B91AEB923D00377527 /* SHCafeteria.m */,
 				59E4A0D01AEAF40A007E4981 /* SHFood.h */,
 				59E4A0D11AEAF40A007E4981 /* SHFood.m */,
 			);
@@ -350,6 +355,7 @@
 				59E4A0C41AEAE7E1007E4981 /* SHFoodViewController.m in Sources */,
 				59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */,
 				59E4A0D21AEAF40A007E4981 /* SHFood.m in Sources */,
+				59A147BA1AEB923D00377527 /* SHCafeteria.m in Sources */,
 				59E4A0D61AEAFE88007E4981 /* SHFoodTableViewCell.m in Sources */,
 				59E4A0951AEADC57007E4981 /* main.m in Sources */,
 				59E4A0CA1AEAEC17007E4981 /* SHCategoriesViewController.m in Sources */,

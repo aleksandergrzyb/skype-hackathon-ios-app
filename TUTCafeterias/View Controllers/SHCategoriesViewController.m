@@ -13,6 +13,7 @@
 
 @interface SHCategoriesViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) UILabel *categorizeByLabel;
 @property (strong, nonatomic) NSDictionary *cafeteriasDictionary;
 @property (strong, nonatomic) NSDictionary *dishTypeDictionary;
 @property (strong, nonatomic) NSDictionary *typeDictionary;
@@ -26,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed:0.271 green:0.271 blue:0.271 alpha:1];
+    self.view.backgroundColor = [UIColor colorWithRed:0.27 green:0.27 blue:0.27 alpha:1];
     [self customizeTableView];
 }
 
@@ -36,6 +37,23 @@
     UITableView *tableView = [[UITableView alloc] init];
     self.tableView = tableView;
     [self.view addSubview:tableView];
+
+    UILabel *categorizeByLabel = [[UILabel alloc] initWithFrame:CGRectMake(CATEGORIZE_BY_LABEL_LEFT_OFFSET,
+                                                                           CATEGORIZE_BY_LABEL_TOP_OFFSET,
+                                                                           0.0f, 0.0f)];
+    self.categorizeByLabel = categorizeByLabel;
+
+
+    NSDictionary *atrributedStringAttributes = @{
+                                                 NSFontAttributeName : [UIFont fontWithName:@"Homestead-Regular" size:22.0f],
+                                                 NSForegroundColorAttributeName : [UIColor whiteColor],
+                                                 NSBackgroundColorAttributeName : [UIColor clearColor],
+                                                 NSKernAttributeName : [NSNumber numberWithFloat:1.0f]
+                                                 };
+
+    self.categorizeByLabel.attributedText = [[NSAttributedString alloc] initWithString:@"Categories" attributes:atrributedStringAttributes];;
+    [self.categorizeByLabel sizeToFit];
+    [self.view addSubview:self.categorizeByLabel];
 }
 
 - (void)viewWillLayoutSubviews
@@ -143,7 +161,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 28.0f;
+    return HEADER_HEIGHT;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

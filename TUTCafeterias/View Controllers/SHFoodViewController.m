@@ -9,11 +9,12 @@
 #import "SHFoodViewController.h"
 #import "SHFood.h"
 #import "SHFoodTableViewCell.h"
+#import "SHConstants.h"
 #import <Parse/Parse.h>
 
 @interface SHFoodViewController ()
-@property NSArray *food;
-@property NSMutableArray *cafeterias;
+@property (strong, nonatomic) NSArray *food;
+@property (strong, nonatomic) NSMutableArray *cafeterias;
 @end
 
 @implementation SHFoodViewController
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     [self configureTableView];
     [self configureNavigationItemButtons];
+    [self configureDynamicsDrawer];
     [self loadData];
 }
 
@@ -145,17 +147,52 @@
 }
 
 #pragma mark -
+#pragma mark Dynamics Drawer Configuration
+
+- (void)configureDynamicsDrawer
+{
+    [self.dynamicsDrawerViewController setRevealWidth:self.view.frame.size.width - REVEAL_OFFSET forDirection:MSDynamicsDrawerDirectionLeft];
+}
+
+#pragma mark -
 #pragma mark Navigation Bar Configuration
 
 - (void)configureNavigationItemButtons
 {
-    UIView *leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"reveal_new"]];
-    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
+    UIImage *leftImage = [UIImage imageNamed:@"reveal_new"];
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [leftButton setFrame:CGRectMake(0.0f, 0.0f, leftImage.size.width, leftImage.size.height)];
+    [leftButton setBackgroundImage:leftImage forState:UIControlStateNormal];
+    [leftButton addTarget:self action:@selector(leftButtonPushed) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
 
-    UIView *rightView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"compass"]];
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightView];
+    UIImage *rightImage = [UIImage imageNamed:@"compass"];
+    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightButton setFrame:CGRectMake(0.0f, 0.0f, rightImage.size.width, rightImage.size.height)];
+    [rightButton setBackgroundImage:rightImage forState:UIControlStateNormal];
+    [rightButton addTarget:self action:@selector(rightButtonPushed)
+          forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+}
+
+#pragma mark -
+#pragma mark Actions
+
+- (void)leftButtonPushed
+{
+    [self.dynamicsDrawerViewController setPaneState:MSDynamicsDrawerPaneStateOpen
+                                           animated:YES
+                              allowUserInterruption:YES
+                                         completion:^{
+
+    }];
+}
+
+- (void)rightButtonPushed
+{
+
 }
 
 @end

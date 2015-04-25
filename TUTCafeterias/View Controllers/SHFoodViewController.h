@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSDynamicsDrawerViewController.h"
 
 @interface SHFoodViewController : UITableViewController
 
+@property (weak, nonatomic) MSDynamicsDrawerViewController *dynamicsDrawerViewController;
 
 @end

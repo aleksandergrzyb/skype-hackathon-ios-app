@@ -37,6 +37,7 @@
 
     // Front view controller
     SHFoodViewController *foodViewController = [SHFoodViewController new];
+    foodViewController.dynamicsDrawerViewController = self.dynamicsDrawerViewController;
 
     // Navigation controller for main food and map controller on the right
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:foodViewController];
@@ -50,8 +51,6 @@
 
     self.window.rootViewController = self.dynamicsDrawerViewController;
     [self.window makeKeyAndVisible];
-
-    UIView *topView = self.window.rootViewController.view;
 
     return YES;
 }

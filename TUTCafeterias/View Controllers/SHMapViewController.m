@@ -32,18 +32,19 @@
 
 - (void)addImage
 {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 64)];
     self.scrollView = scrollView;
     self.scrollView.delegate = self;
-    self.scrollView.minimumZoomScale = 1.0;
-    self.scrollView.maximumZoomScale = 5.0;
+    self.scrollView.minimumZoomScale = 0.7;
+    self.scrollView.maximumZoomScale = 1.0;
     self.scrollView.zoomScale = 1.0;
     [self.view addSubview:self.scrollView];
 
-    UIImageView *mapView = [[UIImageView alloc] init];
+    UIImage *mapImage = [UIImage imageNamed:@"map"];
+    UIImageView *mapView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, mapImage.size.width, mapImage.size.height)];
     self.mapView = mapView;
-    self.mapView.image = [UIImage imageNamed:@"map"];
-    self.mapView.frame = CGRectMake(0.0f, 0.0f, self.mapView.image.size.width, self.mapView.image.size.height);
+    self.mapView.image = mapImage;
+    self.mapView.contentMode = UIViewContentModeTopLeft;
     self.scrollView.contentSize = self.mapView.image.size;
     [self.scrollView addSubview:self.mapView];
 }

@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSDictionary *dishTypeDictionary;
 @property (strong, nonatomic) NSDictionary *typeDictionary;
 @property (strong, nonatomic) NSMutableArray *nonSelectedCheckmarksArray;
+@property (strong, nonatomic) NSDictionary *categoriesPhotoDictionary;
 @property (strong, nonatomic) NSMutableArray *filters;
 @end
 
@@ -113,6 +114,24 @@
     return _typeDictionary;
 }
 
+- (NSDictionary *)categoriesPhotoDictionary
+{
+    if (!_categoriesPhotoDictionary) {
+        _categoriesPhotoDictionary = @{
+                                       @(TYPE_FRUIT_POSITION) : [UIImage imageNamed:@"fruit"],
+                                       @(TYPE_FRUIT_POSITION) : [UIImage imageNamed:@"fruit"],
+                                       @(TYPE_FRUIT_POSITION) : [UIImage imageNamed:@"fruit"],
+                                       @(TYPE_FRUIT_POSITION) : [UIImage imageNamed:@"fruit"],
+                                       @(TYPE_FRUIT_POSITION) : [UIImage imageNamed:@"fruit"],
+                                       @(TYPE_FRUIT_POSITION) : [UIImage imageNamed:@"fruit"],
+                                       @(TYPE_FRUIT_POSITION) : [UIImage imageNamed:@"fruit"],
+                                       @(TYPE_FRUIT_POSITION) : [UIImage imageNamed:@"fruit"],
+                                       @(TYPE_FRUIT_POSITION) : [UIImage imageNamed:@"fruit"],
+                                       };
+    }
+    return _categoriesPhotoDictionary;
+}
+
 - (NSMutableArray *)nonSelectedCheckmarksArray
 {
     if (!_nonSelectedCheckmarksArray) {
@@ -186,6 +205,7 @@
 {
     static NSString *CellIdentifier = @"CategoriesCell";
     SHCategoriesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    cell.imageView.image = self.categoriesPhotoDictionary[@(TYPE_FRUIT_POSITION)];
     switch (indexPath.section) {
         case CAFETERIA_HEADER_POSITION:
             cell.textLabel.text = self.cafeteriasDictionary[@(indexPath.row)];

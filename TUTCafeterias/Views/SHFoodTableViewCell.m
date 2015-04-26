@@ -8,6 +8,7 @@
 
 #import "SHFoodTableViewCell.h"
 #import "SHConstants.h"
+#import <Masonry/Masonry.h>
 
 @interface SHFoodTableViewCell ()
 @property (weak, nonatomic) UILabel *priceLabel;
@@ -56,13 +57,18 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.priceLabel.frame = CGRectMake(PRICE_LABEL_LEFT_OFFSET, 0, self.priceLabel.frame.size.width,
-                                       self.frame.size.height);
 
-    self.priceSmallLabel.frame = CGRectMake(CGRectGetMaxX(self.priceLabel.frame) + PRICE_SMALL_LABEL_LEFT_OFFSET,
-                                            PRICE_SMALL_LABEL_TOP_OFFSET,
-                                            self.priceSmallLabel.frame.size.width,
-                                            self.priceSmallLabel.frame.size.height);
+    UIEdgeInsets smallPricePadding = UIEdgeInsetsMake(5, 0, 0, -30);
+    [self.priceSmallLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_right).with.offset(smallPricePadding.right);
+        make.top.equalTo(self.mas_top).with.offset(smallPricePadding.top);
+    }];
+
+    UIEdgeInsets pricePadding = UIEdgeInsetsMake(15, 0, 0, -5);
+    [self.priceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.priceSmallLabel.mas_left).with.offset(pricePadding.right);
+        make.centerY.equalTo(self);
+    }];
 
     switch (self.cellType) {
         case FoodTableViewCellTypeCafeteria:

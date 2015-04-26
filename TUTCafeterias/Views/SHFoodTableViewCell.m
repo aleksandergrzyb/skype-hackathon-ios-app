@@ -15,6 +15,7 @@
 @property (weak, nonatomic) UILabel *priceSmallLabel;
 @property (weak, nonatomic) UILabel *nameLabel;
 @property (weak, nonatomic) UILabel *cafeteriaLabel;
+@property (weak, nonatomic) UIImageView *glutenFreeImageView;
 @end
 
 @implementation SHFoodTableViewCell
@@ -47,6 +48,12 @@
         self.cafeteriaLabel = cafeteriaLabel;
         self.cafeteriaLabel.font = [UIFont systemFontOfSize:12.0f];
         [self addSubview:self.cafeteriaLabel];
+
+        UIImageView *glutenFreeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 5.0f, 5.0f)];
+        self.glutenFreeImageView = glutenFreeImageView;
+        self.glutenFreeImageView.image = [UIImage imageNamed:@"gluten_free"];
+        self.glutenFreeImageView.contentMode = UIViewContentModeScaleAspectFit;
+        [self addSubview:self.glutenFreeImageView];
     }
     return self;
 }
@@ -70,6 +77,12 @@
         make.centerY.equalTo(self);
     }];
 
+    UIEdgeInsets glutenFreeImageViewPadding = UIEdgeInsetsMake(0, 10, 0, 0);
+    [self.glutenFreeImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.nameLabel.mas_right).with.offset(glutenFreeImageViewPadding.left);
+        make.centerY.equalTo(self);
+    }];
+
     switch (self.cellType) {
         case FoodTableViewCellTypeCafeteria:
             [self.nameLabel sizeToFit];
@@ -86,6 +99,13 @@
                                               self.nameLabel.frame.size.width, self.frame.size.height);
             self.cafeteriaLabel.hidden = YES;
             break;
+    }
+
+    if (self.isGlutenFree) {
+        self.glutenFreeImageView.hidden = NO;
+    }
+    else {
+        self.glutenFreeImageView.hidden = YES;
     }
 
 }

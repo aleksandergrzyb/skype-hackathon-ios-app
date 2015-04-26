@@ -18,6 +18,7 @@ typedef enum {
 @property (strong, nonatomic) NSNumber *price;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *cafeteria;
+@property (nonatomic) BOOL isGlutenFree;
 
 @property (nonatomic) FoodTableViewCellType cellType;
 

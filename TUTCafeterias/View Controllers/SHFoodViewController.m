@@ -204,6 +204,7 @@
                     cell.cellType = FoodTableViewCellTypeNonCafeteria;
                     cell.name = food.name;
                     cell.price = food.price;
+                    cell.isGlutenFree = food.gluten_free;
                     return cell;
                 } else {
                     count++;

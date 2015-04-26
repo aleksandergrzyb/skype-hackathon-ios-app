@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08395B86F05288ADBA528521 /* libPods-TUTCafeterias.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C6ECDA3A57E6438F71CA56D /* libPods-TUTCafeterias.a */; };
+		5956D3431AECC3FB00045F11 /* SHMenusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5956D3421AECC3FB00045F11 /* SHMenusViewController.m */; };
 		59A147B21AEB8D7F00377527 /* Homestead-Display.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147AC1AEB8D7F00377527 /* Homestead-Display.ttf */; };
 		59A147B31AEB8D7F00377527 /* Homestead-Inline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147AD1AEB8D7F00377527 /* Homestead-Inline.ttf */; };
 		59A147B41AEB8D7F00377527 /* Homestead-One.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59A147AE1AEB8D7F00377527 /* Homestead-One.ttf */; };
@@ -43,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		4EB79E27CD61FF828045ADAF /* Pods-TUTCafeterias.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TUTCafeterias.release.xcconfig"; path = "Pods/Target Support Files/Pods-TUTCafeterias/Pods-TUTCafeterias.release.xcconfig"; sourceTree = "<group>"; };
+		5956D3411AECC3FB00045F11 /* SHMenusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMenusViewController.h; path = "View Controllers/SHMenusViewController.h"; sourceTree = "<group>"; };
+		5956D3421AECC3FB00045F11 /* SHMenusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMenusViewController.m; path = "View Controllers/SHMenusViewController.m"; sourceTree = "<group>"; };
 		59A147AC1AEB8D7F00377527 /* Homestead-Display.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Display.ttf"; sourceTree = "<group>"; };
 		59A147AD1AEB8D7F00377527 /* Homestead-Inline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-Inline.ttf"; sourceTree = "<group>"; };
 		59A147AE1AEB8D7F00377527 /* Homestead-One.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Homestead-One.ttf"; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				59E4A0C31AEAE7E1007E4981 /* SHFoodViewController.m */,
 				59D000641AEC15AC00C6C958 /* SHMapViewController.h */,
 				59D000651AEC15AC00C6C958 /* SHMapViewController.m */,
+				5956D3411AECC3FB00045F11 /* SHMenusViewController.h */,
+				5956D3421AECC3FB00045F11 /* SHMenusViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				59E4A0981AEADC57007E4981 /* AppDelegate.m in Sources */,
 				59D000631AEBFA7800C6C958 /* SHDishType.m in Sources */,
 				59D0005A1AEBC07A00C6C958 /* SHCategoriesTableViewCell.m in Sources */,
+				5956D3431AECC3FB00045F11 /* SHMenusViewController.m in Sources */,
 				59E4A0D21AEAF40A007E4981 /* SHFood.m in Sources */,
 				59A147BA1AEB923D00377527 /* SHCafeteria.m in Sources */,
 				59E4A0D61AEAFE88007E4981 /* SHFoodTableViewCell.m in Sources */,

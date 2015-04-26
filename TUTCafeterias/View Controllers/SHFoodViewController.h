@@ -18,5 +18,6 @@ typedef enum : NSUInteger {
 
 @property (weak, nonatomic) MSDynamicsDrawerViewController *dynamicsDrawerViewController;
 @property (strong, nonatomic) NSArray *filters;
+@property (strong, nonatomic) NSArray *food;
 
 @end

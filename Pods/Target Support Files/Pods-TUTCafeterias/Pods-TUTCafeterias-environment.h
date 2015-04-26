@@ -24,11 +24,23 @@
 #define COCOAPODS_VERSION_MINOR_Bolts_Tasks 1
 #define COCOAPODS_VERSION_PATCH_Bolts_Tasks 5
 
+// ICViewPager
+#define COCOAPODS_POD_AVAILABLE_ICViewPager
+#define COCOAPODS_VERSION_MAJOR_ICViewPager 1
+#define COCOAPODS_VERSION_MINOR_ICViewPager 5
+#define COCOAPODS_VERSION_PATCH_ICViewPager 1
+
 // MSDynamicsDrawerViewController
 #define COCOAPODS_POD_AVAILABLE_MSDynamicsDrawerViewController
 #define COCOAPODS_VERSION_MAJOR_MSDynamicsDrawerViewController 1
 #define COCOAPODS_VERSION_MINOR_MSDynamicsDrawerViewController 5
 #define COCOAPODS_VERSION_PATCH_MSDynamicsDrawerViewController 1
+
+// Masonry
+#define COCOAPODS_POD_AVAILABLE_Masonry
+#define COCOAPODS_VERSION_MAJOR_Masonry 0
+#define COCOAPODS_VERSION_MINOR_Masonry 6
+#define COCOAPODS_VERSION_PATCH_Masonry 1
 
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse

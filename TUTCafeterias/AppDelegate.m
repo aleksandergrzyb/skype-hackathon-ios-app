@@ -11,9 +11,10 @@
 #import "SHFoodViewController.h"
 #import "SHCategoriesViewController.h"
 #import "MSDynamicsDrawerViewController.h"
+#import "SHMenusViewController.h"
 
 @interface AppDelegate () <MSDynamicsDrawerViewControllerDelegate, SHCategoriesViewControllerDelegate>
-@property (weak, nonatomic) SHFoodViewController *foodViewController;
+@property (weak, nonatomic) SHMenusViewController *menusViewController;
 @end
 
 @implementation AppDelegate
@@ -37,14 +38,12 @@
     self.dynamicsDrawerViewController.gravityMagnitude = 4.0f;
 
     // Front view controller
-    SHFoodViewController *foodViewController = [SHFoodViewController new];
-    foodViewController.dynamicsDrawerViewController = self.dynamicsDrawerViewController;
+    SHMenusViewController *menusViewController = [SHMenusViewController new];
+    menusViewController.dynamicsDrawerViewController = self.dynamicsDrawerViewController;
 
     // Navigation controller for main food and map controller on the right
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:foodViewController];
-
-    // Keeping reference to pass filters from categories vc
-    self.foodViewController = foodViewController;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:menusViewController];
+    self.menusViewController = menusViewController;
 
     // Left view controller
     SHCategoriesViewController *categoriesViewController = [SHCategoriesViewController new];
@@ -87,7 +86,7 @@
 
 - (void)viewController:(SHCategoriesViewController *)categoriesViewController didUpdateFilters:(NSArray *)filters
 {
-    self.foodViewController.filters = filters;
+    self.menusViewController.filters = filters;
 }
 
 @end

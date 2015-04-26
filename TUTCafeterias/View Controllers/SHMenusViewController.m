@@ -12,6 +12,7 @@
 #import "SHDishType.h"
 #import "SHType.h"
 #import "SHFood.h"
+#import <DateTools.h>
 #import <Parse/Parse.h>
 
 @interface SHMenusViewController () <ViewPagerDataSource, ViewPagerDelegate>
@@ -77,8 +78,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             self.food = objects;
-            self.todayFoodViewController.food = self.food;
-            self.tomorrowFoodViewController.food = self.food;
+            [self loadFoodToViewControllers];
         }
         else {
             NSLog(@"%@", error.description);
@@ -86,6 +86,27 @@
             [alertView show];
         }
     }];
+}
+
+- (void)loadFoodToViewControllers
+{
+    NSDate *today = [NSDate date];
+    NSInteger todayNumber = today.dayOfYear;
+
+    NSMutableArray *todayFood = [NSMutableArray new];
+    NSMutableArray *tomorrowFood = [NSMutableArray new];
+
+    for (SHFood *food in self.food) {
+        NSInteger foodDayNumber = food.date.dayOfYear;
+        if (foodDayNumber == todayNumber) {
+            [todayFood addObject:food];
+        } else if (foodDayNumber == todayNumber + 1){
+            [tomorrowFood addObject:food];
+        }
+    }
+
+    self.todayFoodViewController.food = [todayFood copy];
+    self.tomorrowFoodViewController.food = [tomorrowFood copy];
 }
 
 #pragma mark -

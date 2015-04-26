@@ -5,6 +5,7 @@ PODS:
   - Bolts/AppLinks (1.1.5):
     - Bolts/Tasks
   - Bolts/Tasks (1.1.5)
+  - DateTools (1.5.0)
   - ICViewPager (1.5.1)
   - Masonry (0.6.1)
   - MSDynamicsDrawerViewController (1.5.1)
@@ -12,6 +13,7 @@ PODS:
     - Bolts (~> 1.1)
 
 DEPENDENCIES:
+  - DateTools
   - ICViewPager
   - Masonry
   - MSDynamicsDrawerViewController
@@ -19,6 +21,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
+  DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
   ICViewPager: 032dc71a50fe898e185fae6112ded4bed0e0523c
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   MSDynamicsDrawerViewController: 2874df90f5e9453dc7d4e32f8038b50615d4baa7

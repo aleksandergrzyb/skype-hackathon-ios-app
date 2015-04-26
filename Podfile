@@ -5,6 +5,7 @@ target 'TUTCafeterias' do
 	pod 'Parse'
 	pod 'MSDynamicsDrawerViewController'
 	pod 'Masonry'
+	pod 'DateTools'
 	pod 'ICViewPager'
 end
 
